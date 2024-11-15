@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <section class="music-container" id="musicContainer">
+      <div class="song-info">
+        <div class="song-title">
+          <marquee direction="left" id="songTitle">Song title</marquee>
+        </div>
+        <div class="artist-name">
+          <span id="artistName"></span>
+        </div>
+      </div>
+      <div class="song-image">
+        <img src="/images/SathiSushantKC.jpg" alt="Song Image" id="songImage" />
+        <div id="volume-wrapper">
+          <input
+            type="range"
+            id="volume-control"
+            min="0"
+            max="1"
+            step="0.01"
+            value="1"
+          />
+          <i class="ri-volume-up-fill"></i>
+        </div>
+      </div> 
+
+      <div class="play-pause-icon">
+        <h3 class="hover" id="shuffle-btn" title="Shuffle Mode"><i class="ri-shuffle-fill"></i></h3>
+        <h3 class="hover" id="loop-btn" title="Repeat Mode"><i class="ri-repeat-2-line"></i></h3>
+
+        <h3 id="playSpeedBtn" class="hover" title="Play Speed" >
+          <i class="ri-speed-up-fill"></i>
+        </h3>
+        <div id="playbackSpeedOptions" class="playback-speed-options">
+          <button data-speed="0.5">0.5x</button>
+          <button data-speed="1">1x</button>
+          <button data-speed="1.5">1.5x</button>
+          <button data-speed="2">2x</button>
+        </div>
+        <h3 id="downloadBtn" class="hover" title="Download">
+          <i class="ri-download-2-line"></i>
+        </h3>
+
+        <div class="hamburger hover" id="hamburger" title="More Songs"> 
+          <i class="ri-play-list-fill"></i>
+        </div>
+      </div>
+
+      <div class="song-seekbar-info">
+        <div id="starting-time">00:00</div>
+        <div id="progress-bar" class="progress-bar-container">
+          <div id="progress" class="progress-bar"></div>
+          <!-- Progress bar -->
+        </div>
+        <div id="ending-time">00:00</div>
+      </div>
+
+      <div class="play-pause-icon">
+        <h2 onclick="forago()"><i class="ri-replay-5-fill"></i></h2>
+        <h3 id="backward"><i class="ri-skip-back-line"></i></h3>
+        <h3 id="play"><i class="ri-play-fill"></i></h3>
+        <h3 id="forward"><i class="ri-skip-forward-line"></i></h3>
+        <h2 onclick="backago()">
+          <i class="ri-forward-10-line"></i>
+        </h2>
+      </div>
+
+      <div class="desc-list">
+        <div class="shuffle-disc" id="shuffle-desc">
+          <div class="shuffle-loop-flex">
+            <h4><i class="ri-shuffle-fill"></i></h4>
+            <p>Switched To Shuffle Mode</p>
+          </div>
+        </div>
+        <div class="shuffle-disc" id="shuffle-desc-off">
+          <div class="shuffle-loop-flex">
+            <h4><i class="ri-shuffle-fill"></i></h4>
+            <p>Shuffle Mode Off</p>
+          </div>
+        </div>
+        <div class="shuffle-disc" id="play-song-toast">
+          <div class="shuffle-loop-flex">
+            <h4><i class="ri-play-fill"></i></h4>
+            <p>Song Play</p>
+          </div>
+        </div>
+        <div class="shuffle-disc" id="pause-song-toast">
+          <div class="shuffle-loop-flex">
+            <h4><i class="ri-pause-line"></i></h4>
+            <p>Song Pause</p>
+          </div>
+        </div>
+        <div class="shuffle-disc" id="loop-desc">
+          <div class="shuffle-loop-flex">
+            <h4><i class="ri-repeat-one-line"></i></h4>
+            <p>Switched To Single Loop</p>
+          </div>
+        </div>
+        <div class="shuffle-disc" id="single-loop-desc">
+          <div class="shuffle-loop-flex">
+            <h4><i class="ri-repeat-line"></i></h4>
+            <p>Switched To List Loop</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="music-container2">
+        <div class="song-list-container" id="songListContainer">
+          <div class="remove-song-list">
+            <h3>All Songs</h3>
+            <h3 id="removeSong"><i class="ri-close-line"></i></h3>
+          </div>
+          <ul class="song-list" id="songList"></ul>
+        </div>
+
+        <div class="music-player"></div>
+      </div>
+    </section>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
